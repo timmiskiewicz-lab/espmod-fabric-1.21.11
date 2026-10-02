@@ -1,0 +1,23 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${version}",
+    "name": "Block Highlight",
+    "description": "Highlights selected blocks and mobs in the world. Press G for blocks, H for mobs.",
+    "authors": [
+        "BlockHighlightDev"
+    ],
+    "license": "MIT",
+    "environment": "client",
+    "entrypoints": {
+        "client": [
+            "com.blockhighlight.BlockHighlightClient"
+        ]
+    },
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "fabric-api": "*",
+        "minecraft": "~${minecraft_version}",
+        "java": ">=21"
+    }
+}

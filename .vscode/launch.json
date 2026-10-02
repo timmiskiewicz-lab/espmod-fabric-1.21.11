@@ -1,0 +1,49 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Client",
+      "presentation": {
+        "group": "Mod Development - blockhighlight-mod",
+        "order": 0
+      },
+      "projectName": "blockhighlight-mod",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\miski\\OneDrive\\Pulpit\\blockhighlight-mod\\build\\moddev\\clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\miski\\OneDrive\\Pulpit\\blockhighlight-mod\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003dblockhighlight%%C:\\Users\\miski\\OneDrive\\Pulpit\\blockhighlight-mod\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Server",
+      "presentation": {
+        "group": "Mod Development - blockhighlight-mod",
+        "order": 1
+      },
+      "projectName": "blockhighlight-mod",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\miski\\OneDrive\\Pulpit\\blockhighlight-mod\\build\\moddev\\serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\miski\\OneDrive\\Pulpit\\blockhighlight-mod\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003dblockhighlight%%C:\\Users\\miski\\OneDrive\\Pulpit\\blockhighlight-mod\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    }
+  ]
+}

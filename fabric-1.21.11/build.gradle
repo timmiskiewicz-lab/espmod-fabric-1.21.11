@@ -1,0 +1,77 @@
+plugins {
+    id 'fabric-loom' version '1.14.5'
+    id 'maven-publish'
+    id 'java'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    maven { url = 'https://maven.fabricmc.net/' }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mod_id", project.mod_id
+    inputs.property "minecraft_version", project.minecraft_version
+    inputs.property "loader_version", project.loader_version
+
+    filesMatching("fabric.mod.json") {
+        expand(
+                "version": project.version,
+                "mod_id": project.mod_id,
+                "minecraft_version": project.minecraft_version,
+                "loader_version": project.loader_version
+        )
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
+    it.options.release = 21
+}
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+    archiveClassifier = 'dev'
+    manifest {
+        attributes(
+                "Specification-Title"   : project.mod_id,
+                "Specification-Version" : project.version,
+                "Implementation-Title"  : project.mod_id,
+                "Implementation-Version": project.version
+        )
+    }
+}
+
+tasks.named('remapJar') {
+    archiveClassifier = ''
+    archiveVersion = ''
+}
+
+tasks.named('sourcesJar') {
+    archiveClassifier = 'sources-dev'
+}
+
+tasks.named('remapSourcesJar') {
+    archiveClassifier = 'sources'
+    archiveVersion = ''
+}
